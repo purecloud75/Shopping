@@ -55,4 +55,22 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx03";
     }
     // 여러 개의 데이터를 가지고있는 컬렉션 데이터를 화면에 출력하는 방법
+
+    @GetMapping(value = "/ex04")
+    public String thymeleafExample04(Model model) {
+        List<ItemDto> itemDtoList = new ArrayList<>();
+
+        for (int i = 1; i <= 10; i++) {
+            ItemDto itemDto = new ItemDto();
+            itemDto.setItemDetail("상품 상세 설명" + i);
+            itemDto.setItemNm("테스트 상품" + i);
+            itemDto.setPrice(1000 * i);
+            itemDto.setRegTime(LocalDateTime.now());
+
+            itemDtoList.add(itemDto);
+        }
+
+        model.addAttribute("itemDtoList", itemDtoList);
+        return "thymeleafEx/thymeleafEx04";
+    }
 }
