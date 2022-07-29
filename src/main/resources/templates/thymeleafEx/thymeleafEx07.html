@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}" > <!--layouts 폴더 아래에 있는 layout1.html을 적용하기 위한 파트-->
+
+    <div layout:fragment="content">  <!-- layout1.html 파일의 <div layout:fragment="content"> 영역에 들어가는 영역이다.-->
+        본문 영역입니다.
+    </div>
+</html>
+
+<!--
+애플리케이션 실행 하면 thymeleafEx07.html 파일에는 따로 header와 footer 영역을 지정하지 않았지만, 작성한 내용이 layout1.html 파일에 포함돼 출력됨.
+이렇게 공통 영역은 레이아웃으로 만들어놓고 작성하는 페이지의 content만 변경하면 공통으로 들어가는 내용들을 쉽게 관리할 수 있다.
+-->

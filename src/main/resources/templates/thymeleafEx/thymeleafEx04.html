@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -20,12 +21,16 @@
 
     <tbody>
     <tr th:each="itemDto, index: ${itemDtoList}">
-        <td th:if="${index.even}" th:text="짝수"></td>
-        <td th:unless="${index.even}" th:text="홀수"></td>
+        <td th:switch="${index.even}">
+            <span th:case=true>짝수</span>
+            <span th:case=false>홀수</span>
+        </td>
         <td th:text="${itemDto.itemNm}"></td>
         <td th:text="${itemDto.itemDetail}"></td>
         <td th:text="${itemDto.price}"></td>
         <td th:text="${itemDto.regTime}"></td>
+    </tr>
+
     </tr>
     </tbody>
 
