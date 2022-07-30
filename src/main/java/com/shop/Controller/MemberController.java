@@ -51,6 +51,7 @@ public class MemberController {
 
         } catch (IllegalStateException e) {
             model.addAttribute("errorMessage", e.getMessage());  // 중복가입 예외가 발생하면 에러메시지를 뷰로 전달함.
+            return "member/memberForm";
         }
         return "redirect:/";
         // return "viewName"같은 경우는 viewName에 해당하는 view를 보여주는 것이고, return "redirect:/"같은
