@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.shop.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -24,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // http 요청에 대한 보안을 설정함. 페이지 권한설정, 로그인 페이지설정 등.
+        http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
         http.formLogin()
                 .loginPage("/members/login")  // 로그인 페이지의 URL을 설정함.
                 .defaultSuccessUrl("/")  // 로그인 성공 시 이동할 URL을 설정함. main.html을 띄운다는 의미이다.
