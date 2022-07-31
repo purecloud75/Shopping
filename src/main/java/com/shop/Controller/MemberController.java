@@ -32,7 +32,7 @@ public class MemberController {
     public String memberForm(Model model) {
         model.addAttribute("memberFormDto", new MemberFormDto());
         // 최초의 비어있는 Dto객체를 생성한 후에 뷰 템플릿에 보냄. 웹페이지에 입력한 회원정보데이터가 Dto(엄밀히는 Dto 객체의 필드)에 저장됨.
-        return "member/memberForms";
+        return "member/memberForm";
     }
 
     @PostMapping(value = "/new")
@@ -40,7 +40,7 @@ public class MemberController {
                             BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {  // 회원가입 시 정보를 주어진 조건하에서 입력하지 않으면 회원가입 페이지 다시 띄워줌. 제대로 잘 입력하라고.
-            return "member/memberForms";
+            return "member/memberForm";
         }
         try {
             Member member = Member.createMember(memberFormDto, passwordEncoder);
@@ -51,7 +51,7 @@ public class MemberController {
 
         } catch (IllegalStateException e) {
             model.addAttribute("errorMessage", e.getMessage());  // 중복가입 예외가 발생하면 에러메시지를 뷰로 전달함.
-            return "member/memberForms";
+            return "member/memberForm";
         }
         return "redirect:/";
         // return "viewName"같은 경우는 viewName에 해당하는 view를 보여주는 것이고, return "redirect:/"같은
