@@ -31,7 +31,7 @@ public class MemberController {
     @GetMapping(value = "/new")
     public String memberForm(Model model) {
         model.addAttribute("memberFormDto", new MemberFormDto());
-        // 최초의 비어있는 Dto객체를 생성한 후에 뷰 템플릿에 보냄. 웹페이지에 입력한 회원정보데이터가 Dto(엄밀히는 Dto 객체의 필드)에 저장됨.
+        // 최초의 비어있는 Dto객체를 생성한 후에 뷰 템플릿에 보냄. 웹페이지에 입력한 회원정보데이터가 Dto(엄밀히는 Dto 객체의 필드)에 저장이 됨.
         return "member/memberForm";
     }
 
