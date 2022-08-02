@@ -1,4 +1,4 @@
-package com.shop.Controller;
+package com.shop.controller;
 // 회원가입 후 메인 페이지로 갈 수 있도록 한다.
 
 import org.springframework.stereotype.Controller;

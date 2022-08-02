@@ -1,10 +1,9 @@
-package com.shop.Controller;
+package com.shop.controller;
 // 회원가입을 위한 페이지를 만들기 그 첫단계. 멤버컨트롤러 만들기.
 
 import com.shop.dto.MemberFormDto;
 import com.shop.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.Banner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.shop.entity.Member;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.validation.BindingResult;
 
