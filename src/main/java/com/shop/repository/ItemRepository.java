@@ -3,6 +3,8 @@ package com.shop.repository;
 import com.shop.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;  // 해당 인터페이스가 상속받고자하는 상위 인터페이스이다.
 // 즉 해당 인터페이스의 구현클래스에서는 상위와 하위인터페이스에 선언만 되어있는 모든 추상메소드(자동으로 abstract를 붙여줌)를 구현해야만 한다.
+// Repository 인터페이스를 활용하면 엔티티매니저를 생성하여 영속성 컨텍스트(1차캐시, 쓰기 지연 SQL 저장소)에 잠시 저장시키다가
+// flush()가 실행되면서 1차캐시의 엔티티 데이터와 SQL 저장소의 SQL문이 DB로 전송되면서 저장시키는 일련의 과정을 대신 해준다!!
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
