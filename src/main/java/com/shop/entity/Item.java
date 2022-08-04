@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 
-public class Item {
+public class Item extends BaseEntity{
 
     // entity로 선언한 클래스는 반드시 기본키를 가져야 함. 기본키가 되는 멤버변수에 @Id를 붙여줌.
     @Id   //얘를 통해 id 멤버변수를 상품테이블의 기본키로 설정함
@@ -41,9 +41,9 @@ public class Item {
     @Enumerated(EnumType.STRING)  // enum 타입을 매핑해줌.
     private ItemSellStatus itemSellStatus;  //상품 판매 상태. "판매중" 혹은 재고가없으면 '코드'
 
-    private LocalDateTime regTime;  //상품등록시간
 
-    private LocalDateTime updateTime;  //상품수정시간
+    //private LocalDateTime regTime;  상품등록시간
+    //private LocalDateTime updateTime;  상품수정시간
 }
 
 /*

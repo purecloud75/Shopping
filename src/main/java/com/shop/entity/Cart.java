@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-public class Cart {
+public class Cart extends BaseEntity{
 
     @Id
     @Column(name = "cart_id")
@@ -23,7 +23,7 @@ public class Cart {
     private Long id;
 
     // 즉시 로딩 : 엔티티를 조회할 때, 해당 엔티티와 매핑된 엔티티도 한 번에 조회하는 것을 말함.
-    @OneToOne  // 멤버 엔티티와 일대일로 매핑을 함. 괄호를 적지않으면 기본값으로 즉시 로딩으로 설정됨.
+    @OneToOne(fetch = FetchType.LAZY)  // 멤버 엔티티와 일대일로 매핑을 함. 괄호를 적지않으면 기본값으로 즉시 로딩으로 설정됨.
     @JoinColumn(name = "member_id")  // 매핑할 외래키를 지정함. 멤버엔티티의 기본키 역할을 하는 필드명을 외래키로 설정함.
     private Member member;
 }
