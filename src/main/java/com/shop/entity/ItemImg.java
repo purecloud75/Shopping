@@ -27,7 +27,7 @@ public class ItemImg extends BaseEntity {  // 등록 및 수정 시간을 실시
 
     private String imgUrl;
 
-    private String repImgYn;  //  대표 이미지 여부
+    private String repimgYn;  //  대표 이미지 여부
 
     @ManyToOne(fetch = FetchType.LAZY)  // 하나의 상품에 여러 개의 상품 이미지가 매핑됨.
     @JoinColumn(name = "item_id")

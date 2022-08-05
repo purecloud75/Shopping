@@ -10,6 +10,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import com.shop.dto.ItemFormDto;
 
 @Entity  // item클래스를 entity로 선언함
 @Table(name = "item")  // 어떤 테이블과 매핑될지를 지정함. item테이블과 매핑되도록 name을 item으로 지정함
@@ -41,9 +42,16 @@ public class Item extends BaseEntity{
     @Enumerated(EnumType.STRING)  // enum 타입을 매핑해줌.
     private ItemSellStatus itemSellStatus;  //상품 판매 상태. "판매중" 혹은 재고가없으면 '코드'
 
-
     //private LocalDateTime regTime;  상품등록시간
     //private LocalDateTime updateTime;  상품수정시간
+
+    public void updateItem(ItemFormDto itemFormDto){
+        this.itemNm = itemFormDto.getItemNm();
+        this.price = itemFormDto.getPrice();
+        this.stockNumber = itemFormDto.getStockNumber();
+        this.itemDetail = itemFormDto.getItemDetail();
+        this.itemSellStatus = itemFormDto.getItemSellStatus();
+    }
 }
 
 /*

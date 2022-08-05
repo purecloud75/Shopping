@@ -40,7 +40,7 @@ public class ItemFormDto {
 
     private static ModelMapper modelMapper = new ModelMapper();
 
-    private Item createItem() {
+    public Item createItem() {
         return modelMapper.map(this, Item.class);
     }  // Dto의 값으로 복사된 "엔티티 객체"를 리턴한다.
 
